@@ -1,0 +1,23 @@
+<h1 class='text-center my-5 fs-2'>Register Here</h1>
+<div class="card shadow p-3 my-5 d-flex justify-content-center m-auto mw-100 w-50">
+  <%= form_with model: @user, url: sign_up_path, data: { turbo: false } do |form| %>
+    <% if form.object.errors.any? %>
+     <%= render 'error' %>
+    <% end %>
+    <div class="mb-3">
+      <%= form.label :email, class: 'form-label' %>
+      <%= form.text_field :email, class: 'form-control', placeholder: 'denscholar2020@gmail' %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :password, class: 'form-label' %>
+      <%= form.password_field :password, class: 'form-control', placeholder: 'password' %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :password_confirmation, class: 'form-label' %>
+      <%= form.password_field :password_confirmation, class: 'form-control', placeholder: 'password' %>
+    </div>
+    <div class="mb-3">
+      <%= form.submit "Register", class: 'btn btn-primary btn-lg' %>
+    </div>
+  <% end %>
+</div>
