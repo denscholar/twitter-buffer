@@ -1,0 +1,19 @@
+<h1 class='text-center my-5 fs-2'>Reset your Password</h1>
+<div class="card shadow p-3 my-5 d-flex justify-content-center m-auto mw-100 w-50">
+  <%= form_with model: @user, url: password_reset_edit_path(token: params[:token]), data: { turbo: false } do |form| %>
+  <% if form.object.errors.any? %>
+     <%= render 'registrations/error' %>
+    <% end %>
+     <div class="mb-3">
+      <%= form.label :password, class: 'form-label' %>
+      <%= form.password_field :password, class: 'form-control', placeholder: 'password' %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :password_confirmation, class: 'form-label' %>
+      <%= form.password_field :password_confirmation, class: 'form-control', placeholder: 'password' %>
+    </div>
+    <div class="mb-3">
+      <%= form.submit "Reset Password", class: 'btn btn-primary btn-lg' %>
+    </div>
+  <% end %>
+</div>
